@@ -1,0 +1,38 @@
+data; 
+param n:=4000;
+param k:=2;
+
+#display N;
+#display K;
+
+for {i in 1..n}
+{
+    let {b in 1..k} rand[i, b] := round(Uniform(1,n));
+}
+
+#display rand;
+
+option solver ipopt;
+solve;
+
+
+
+#set K{N,N};
+#set T;
+#for {i in 1..n}
+#{
+#    let T := {i};
+#    display T;
+#    display A;
+#    let K := T cross A;
+#    display K;
+#}
+
+#let A := {};
+#for {b in 1..k}
+#{
+#    let A := setof{b in 1..k} a[i, b];
+#}
+
+
+#display A;

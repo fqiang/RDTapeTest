@@ -1,0 +1,7 @@
+#arrowhead.dat
+reset data;
+data;
+param n=20000;
+param k=32;
+option solver ipopt;
+solve;
