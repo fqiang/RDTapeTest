@@ -6,8 +6,8 @@
 using JuMP
 using Ipopt
 
-N = 10
-K = 2
+N = parse(Int,ARGS[1])
+K = parse(Int,ARGS[2])
 RandSet= round(Int,readdlm(string("randset",N,"_",K,".txt")))
 # @show RandSet
 
