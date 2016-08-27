@@ -1,3 +1,1 @@
-#ampl_arrowhead.run
-include arrowhead.mod
-include arrowhead.dat
+echo "include arrowhead.mod; include arrowhead.dat" | ampl 
