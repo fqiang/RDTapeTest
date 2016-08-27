@@ -97,7 +97,7 @@ end
 
 
 function write_random_dat_ampl(N, K)
-	f = open(string("random",N,"_",K,".dat"),"w")
+	f = open(string("randset",N,"_",K,".dat"),"w")
 
 	write(f, string("data; \n"))
 	write(f, string("param n:=",N,"; \n"))

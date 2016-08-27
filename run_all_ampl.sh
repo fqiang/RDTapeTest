@@ -1,5 +1,15 @@
-for i in 1 2 4 8; do
-	let i=$i*5000
-	echo "ampl $i $1"
-	echo "include logmod.mod; include log${i}_$1.dat" | ampl | tee logmod_ampl_${i}_$1.out
+let m=1
+for n in 2000 4000 8000; do
+	echo "ampl logmod.mod - no parameter $m $n"
+	echo "include logmod.mod; include log${m}_${n}.dat;" | ampl
+	echo "--------------------------------------------"	
+done
+echo "--------------------------------------------" 
+echo "--------------------------------------------" 
+echo "--------------------------------------------" 
+let m=2
+for n in 2000 4000 8000; do
+    echo "ampl logmod.mod - no parameter $m $n"
+    echo "include logmod.mod; include log${m}_${n}.dat;" | ampl
+    echo "--------------------------------------------" 
 done
