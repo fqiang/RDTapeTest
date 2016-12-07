@@ -2,13 +2,13 @@ using JuMP
 using Ipopt
 using Compat
 
-if parse(Int, ARGS[2]) == 0
+if parse(Int, ARGS[2]) == 1
     #use JuMP
 elseif parse(Int, ARGS[2]) == 2
     include("interface_tape.jl")
     using TapeInterface
 elseif parse(Int, ARGS[2]) == 3
-    include("interface_tape_dict.jl")
+    include("interface_check.jl")
     using TapeInterface
 else
     @assert false
@@ -58,7 +58,7 @@ function opf(bus, branch,
     p_gen_upper, p_gen_lower)
 
     
-    if parse(Int, ARGS[2]) == 0
+    if parse(Int, ARGS[2]) == 1
         mod = Model(solver=IpoptSolver(max_iter=1))
     elseif parse(Int, ARGS[2]) == 2 || parse(Int, ARGS[2]) == 3
         mod = Model(solver=TapeSolver(IpoptSolver(max_iter=1)))
