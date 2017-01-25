@@ -58,10 +58,12 @@ function opf(bus, branch,
     p_gen_upper, p_gen_lower)
 
     
+    simplify = true
+    @show simplify
     if parse(Int, ARGS[2]) == 1
-        mod = Model(solver=IpoptSolver(max_iter=1))
+        mod = Model(solver=IpoptSolver(max_iter=1), simplify_nonlinear_expressions=simplify)
     elseif parse(Int, ARGS[2]) == 2 || parse(Int, ARGS[2]) == 3
-        mod = Model(solver=TapeSolver(IpoptSolver(max_iter=1)))
+        mod = Model(solver=TapeSolver(IpoptSolver(max_iter=1)), simplify_nonlinear_expressions=simplify)
     else 
         @assert false
     end
